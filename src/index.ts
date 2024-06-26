@@ -44,6 +44,21 @@ app.post('/api/identify', async (req, res) => {
             }
         });
         secondaryContacts.push(secondaryContact);
+    } else {
+        // Check if new information needs to be linked
+        const newInfoContact = contacts.find(contact => contact.email !== email || contact.phoneNumber !== phoneNumber);
+        if (newInfoContact) {
+            // Create a secondary contact if new information is found
+            const secondaryContact = await prisma.contact.create({
+                data: {
+                    email,
+                    phoneNumber,
+                    linkedId: primaryContact.id,
+                    linkPrecedence: 'secondary'
+                }
+            });
+            secondaryContacts.push(secondaryContact);
+        }
     }
 
     // Use Set to ensure unique emails and phone numbers
