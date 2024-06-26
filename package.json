@@ -1,0 +1,26 @@
+{
+  "name": "image-reconciliation",
+  "version": "1.0.0",
+  "description": "he service features an /identify endpoint that consolidates contact information (email and phone number) and returns a unified contact record.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.16.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "prisma": "^5.16.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2"
+  }
+}
